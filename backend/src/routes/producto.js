@@ -11,7 +11,7 @@ router.post('/producto', createProducto);
 router.get('/producto',getAllProductos);
 
 //get stock >0
-router.get('/producto', getAllProductoStock);
+router.get('/productostock', getAllProductoStock);
 
 //delete
 router.delete('/producto/:id', deleteProducto);
