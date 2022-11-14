@@ -1,27 +1,39 @@
-const express= require('express');
-const mongoose = require('mongoose');
-require("dotenv").config();
-const app = express();
-const port = process.env.PORT || 9000;
-const productRoutes = require("./routes/producto"); 
+const express = require("express");
+const moongose = require("mongoose");
+const productoRoute = require("./routes/producto")
+//const productoStockRoute = require("./routes/producto")
+const carritoRoute = require("./routes/carrito")
+const usuarioRoute = require("./routes/usuario")
+const ventaRoute = require("./routes/venta")
 
-//middleware
+
+//settings
+const app = express();
+const port = process.env.PORT || 5000;
+
+//middlewares
+
 app.use(express.json());
-app.use('/api', productRoutes);
+app.use("/api",productoRoute);
+//app.use("/api",productoStockRoute);
+app.use("/api",carritoRoute);
+app.use("/api",usuarioRoute);
+app.use("/api",ventaRoute);
 
 
 //routes
+app.get("/",(req, res)=>{
+    res.send("Conexion exitosa")
+})
 
-app.get('/', (req, res) => {
-    res.send('Bienvenidos a mi API');
-});
+//conexion BD mongo
 
-// mongodb connection
-mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => console.log('Conectado a BD Mongo Atlas'))
-    .catch((error) =>console.log(error));
+moongose
+//conexion usuario admin clave Abcd*1234
+//.connect("mongodb+srv://admin:Abcd*1234@cluster0.yomc5he.mongodb.net/Tienda?retryWrites=true&w=majority")
+.connect("mongodb+srv://admin:Abcd*1234@cluster0.apzd7hh.mongodb.net/Tienda")
+.then(()=>console.log("Conectado a Mongo ATLAS"))
+.catch((error)=>console.error(error))
+//server listening
 
-app.listen(port, 'localhost', () => {
-     console.log(`Servidor corriendo en puerto ${port}`)
-});
+app.listen(port,()=> console.log("Servidor listo y escuchando", port))

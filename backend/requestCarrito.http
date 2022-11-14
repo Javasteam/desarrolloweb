@@ -1,0 +1,29 @@
+###
+POST http://localhost:5000/api/carrito HTTP/1.1
+Content-Type: application/json
+
+{
+      "codigo": "1",
+      "urlImagen": "https://http2.mlstatic.com/D_NQ_NP_905295-MCO48918988539_012022-O.webp",
+      "nombre": "Bicicleta todo terreno",
+      "cantidad": 1,
+      "valor": 2500000
+}
+
+###
+GET http://localhost:5000/api/carrito HTTP/1.1
+
+###
+DELETE http://localhost:5000/api/carrito/636fe3e78620ee670bc56cb7 HTTP/1.1
+
+###
+PUT http://localhost:5000/api/carrito/636fe3e78620ee670bc56cb7 HTTP/1.1
+Content-Type: application/json
+
+{
+      "codigo": "1",
+      "urlImagen": "https://http2.mlstatic.com/D_NQ_NP_905295-MCO48918988539_012022-O.webp",
+      "nombre": "Bicicleta todo terreno",
+      "cantidad": 1,
+      "valor": 3500000
+}

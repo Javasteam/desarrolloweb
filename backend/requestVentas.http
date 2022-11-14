@@ -1,0 +1,13 @@
+###
+POST http://localhost:5000/api/ventas HTTP/1.1
+Content-Type: application/json
+
+{
+      "codigo": "5",
+      "fecha": "22/10/2022",
+      "valorVenta": 3500000
+ 
+}
+
+###
+GET http://localhost:5000/api/ventas HTTP/1.1
