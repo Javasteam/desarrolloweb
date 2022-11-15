@@ -5,6 +5,7 @@ const productoRoute = require("./routes/producto")
 const carritoRoute = require("./routes/carrito")
 const usuarioRoute = require("./routes/usuario")
 const ventaRoute = require("./routes/venta")
+const cors = require("cors")
 
 
 //settings
@@ -14,6 +15,7 @@ const port = process.env.PORT || 5000;
 //middlewares
 
 app.use(express.json());
+app.use(cors());
 app.use("/api",productoRoute);
 //app.use("/api",productoStockRoute);
 app.use("/api",carritoRoute);

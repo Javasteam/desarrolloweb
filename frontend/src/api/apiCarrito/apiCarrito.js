@@ -6,23 +6,21 @@ const getProductos = async () => {
 
 }
 
-export {getProductos}
+
 
 const getCarrito = async () => {
 
     //return await fetch("http://localhost:3000/carrito")
-    return await fetch("http://localhost:5000/api/carrito",{mode:'no-cors'})
+    return await fetch("http://localhost:5000/api/carrito")
 
         .then(res => res.json())     
-        .then(res => {
-
-            console.log(res);
-
+        .catch(error =>{
+            console.error(error)
         })
   
 }
 
-export {getCarrito}
+
 
 //guardar Carrito
 
@@ -70,6 +68,8 @@ const saveCarrito = async () => {
         .catch(error => { console.error(error) })
 
 }
+
+export {getProductos, getCarrito}
 
 /*const eliminarCarrito = async () => {
 

@@ -1,6 +1,6 @@
 const getProductos = async () => {
 
-    return await fetch("http://localhost:3000/productos")
+    return await fetch("http://localhost:5000/api/producto")
 
         .then(res => res.json())       
 

@@ -1,5 +1,4 @@
 import { Fragment } from "react";
-import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../navbar/navbar.js";
 import "./ventas.css";
@@ -15,9 +14,9 @@ export function Ventas() {
     const getdata = async () => {
 
       const data = await getVentas();
-
-      setVentas(data)
       console.log(data)
+      setVentas(data)
+      
 
     }
 
@@ -37,11 +36,10 @@ export function Ventas() {
         <h4 class="font-main-title mx-2">Reporte Ventas</h4>
       </div>
       <div class="card mx-4 my-4">
-            <div class="table-responsive card-body shadow p-3 mb-5 bg-body rounded">
+          <div class="table-responsive card-body shadow p-3 mb-5 bg-body rounded">
+     
       {ventas.map((item, index) => {
         return (
-         
-
 
               <table width="100%" class= "table table-hover table-responsive  text-center">
                 <thead class="thead-primary text-primary">
@@ -54,8 +52,8 @@ export function Ventas() {
                 <tbody class="font-text text-center" id="Productos">
                   <tr>
                     <td className="text-dark">{item.fecha}</td>
-                    <td className="text-dark">{item.id}</td>
-                    <td className="text-dark">{item.valor}</td>
+                    <td className="text-dark">{item.codigo}</td>
+                    <td className="text-dark">{item.valorVenta}</td>
 
                   </tr>
                 </tbody>

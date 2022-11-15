@@ -18,7 +18,6 @@ import{
     Route
 } from "react-router-dom";
 
-import {Marvel} from './components/App/marvel.js';
 import Navbar from './components/navbar/navbar.js';
 
 
@@ -41,7 +40,6 @@ root.render(
         <Routes>
             <Route path="/" element={[<Navbar />,<Home />]} />
             <Route path="/listar-productos" element={<App/>} />
-            <Route path="/marvel" element={<Marvel />} />
             <Route path="/cliente" element={<Cliente />} />
             <Route path="/carrito" element={<Carrito />} />
             <Route path="/modificar" element={<Modificar/>} />

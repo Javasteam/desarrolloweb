@@ -12,9 +12,9 @@ export function App() {
 		const getdata = async () => {
 
 			const data = await getProductos();
-
+      console.log(data)
 			setProductos(data)
-			console.log(data)
+			
 
 		}
 
@@ -33,7 +33,7 @@ export function App() {
     <h4 class="font-main-title mx-4 my-3">Productos</h4>
     <div class="text-center mt-5 ">
     <div class="card mx-4 my-4">
-      <div className="row row-cols-1 row-cols-md-3 g-4" width={150} height={300}>
+    <div className="row row-cols-1 row-cols-md-3 g-4" width={150} height={300}>
       
     {productos.map((item, index) => {
 

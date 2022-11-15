@@ -1,11 +1,9 @@
 import { Fragment } from "react";
 import React, { useEffect, useState } from "react";
-import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../navbar/navbar.js";
 import "./carrito.css";
 //import {Table,Buttom, Modal, Input, Form} from 'antd';
-import axios from 'axios';
 import { getCarrito } from "../../api/apiCarrito/apiCarrito.js";
 //componente
 
@@ -16,9 +14,9 @@ export function Carrito() {
 		const getdata = async () => {
 
 			const data = await getCarrito();
-
+			console.log(data, "Ejemplo data")
 			setCarrito(data)
-			console.log(data)
+			
 
 		}
 
@@ -73,14 +71,14 @@ export function Carrito() {
 										<th scope="row text-center">{item.id}</th>
 										<td >
 											<img
-												src={item.imagen}
+												src={item.urlImagen}
 												className="img-thumbnail"
 												alt="Sheep"
 												width={140} height={150}
 											/>
 										</td>
 										<td 
-										>{item.producto}</td>
+										>{item.nombre}</td>
 										<td>
 											<div class="form-outline">
 												<input
