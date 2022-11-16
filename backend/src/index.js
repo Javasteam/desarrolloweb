@@ -12,12 +12,10 @@ const cors = require("cors")
 const app = express();
 const port = process.env.PORT || 5000;
 
-//middlewares
-
+//middleware
 app.use(express.json());
 app.use(cors());
 app.use("/api",productoRoute);
-//app.use("/api",productoStockRoute);
 app.use("/api",carritoRoute);
 app.use("/api",usuarioRoute);
 app.use("/api",ventaRoute);
@@ -29,12 +27,11 @@ app.get("/",(req, res)=>{
 })
 
 //conexion BD mongo
-
 moongose
 //conexion usuario admin clave Abcd*1234
 .connect("mongodb+srv://admin:Abcd*1234@cluster0.yomc5he.mongodb.net/Tienda?retryWrites=true&w=majority")
 .then(()=>console.log("Conectado a Mongo ATLAS"))
 .catch((error)=>console.error(error))
-//server listening
 
+//server listening
 app.listen(port,()=> console.log("Servidor listo y escuchando", port))

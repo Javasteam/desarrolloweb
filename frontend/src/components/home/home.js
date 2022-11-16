@@ -28,7 +28,7 @@ export function Home(){
         <p class="font-main-text-home">Ven ya por tu nueva bicicleta y mucho más</p>
         </div>
 
-        <div class="text-center mt-5 justify-content-around ">
+        <div class="text-center mt-3 justify-content-around ">
     
     
     <div className="row row-cols-1 row-cols-md-3 g-4 m-3" width={150} height={300}>

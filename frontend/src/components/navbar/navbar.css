@@ -5,3 +5,26 @@
     font-size: 1rem;
 
   }
+
+  .font-title-text{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size:60px;
+    width:auto;
+    text-shadow: 1px 1px #000;
+    
+
+  }
+
+  .font-text-text{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size:30px;
+    width:auto;
+    text-shadow: 1px 1px #000;
+    
+
+  }
+
+  .banner-image {
+    background-image: url('https://images.pexels.com/photos/163491/bike-mountain-mountain-biking-trail-163491.jpeg');
+    background-size: cover;
+  }
