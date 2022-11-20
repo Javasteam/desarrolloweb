@@ -146,7 +146,10 @@ export function Carrito() {
 												</svg></i>
 											</button>
 										</td>
+										
+										<script>{total=total+(item.valor*item.cantidad)}</script>
 									</tr>
+									
 								</tbody>
 
 
