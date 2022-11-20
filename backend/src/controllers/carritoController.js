@@ -1,3 +1,4 @@
+const { db } = require("../models/carritos");
 const carritoSchema = require("../models/carritos")
 
 module.exports = {
@@ -32,5 +33,22 @@ module.exports = {
         .then((data) => res.json(data))
         .catch((error)=>res.json({message : error}))
         
+    },
+    getSumaCarrito: async(req,res) =>{
+        await carritoSchema
+        //.find({ cantidad: { $gt : 0 } })
+        .select({ $sum: cantidad} )
+        //.aggregate({ $group: { _id: null, cantidad: { $sum: cantidad } } })
+        //.aggregate({ $group: { _id: null, cantidad: { $sum: cantidad } } }  )
+      
+        //.limit(3)
+        //sort({ occupation: -1 }).
+        //.select({ stock: 10})
+       // exec(callback);
+        .exec((error,carrito)=>{
+            res.json(carrito)
+        })
+      
+        //return sum;
     }
 }
