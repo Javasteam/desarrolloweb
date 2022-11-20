@@ -11,7 +11,7 @@ const ventasSchema = mongoose.Schema({
         required : true
     },
     valorVenta : {
-        type:String,
+        type:Number,
         required : true
     }
 

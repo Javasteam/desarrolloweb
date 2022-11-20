@@ -1,11 +1,14 @@
 import { Fragment } from "react";
+import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from "../navbar/navbar.js";
 import "./ventas.css";
 import { getVentas } from "../../api/apiVentas/apiVentas.js";
 import React, { useEffect, useState } from "react";
 //componente
 
+var suma = 0;
 
 export function Ventas() {
   const [ventas, setVentas] = useState([])
@@ -14,9 +17,9 @@ export function Ventas() {
     const getdata = async () => {
 
       const data = await getVentas();
-      console.log(data)
+
       setVentas(data)
-      
+      console.log(data)
 
     }
 
@@ -29,50 +32,58 @@ export function Ventas() {
 
   return (
     <Fragment>
-      <div>
-        <Navbar />
-      </div>
-      <div class="p-3 mb-2">
-        <h4 class="font-main-title mx-2">Reporte Ventas</h4>
-      </div>
-      <div class="card mx-4 my-4">
-          <div class="table-responsive card-body shadow p-3 mb-5 bg-body rounded">
-     
-      {ventas.map((item, index) => {
-        return (
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Ventas</h4>
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-primary text-primary">
+                <tr>
+                  <th width='35%' scope="col">Fecha</th>
+                  <th width='35%' scope="col">ID</th>
+                  <th width='35%' scope="col">Valor</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
 
-              <table width="100%" class= "table table-hover table-responsive  text-center">
-                <thead class="thead-primary text-primary">
-                  <tr>
-                    <th width='35%' scope="col">Fecha</th>
-                    <th  width='35%' scope="col">IdVenta</th>
-                    <th  width='35%' scope="col">Valor</th>
-                  </tr>
-                </thead>
-                <tbody class="font-text text-center" id="Productos">
-                  <tr>
-                    <td className="text-dark">{item.fecha}</td>
-                    <td className="text-dark">{item.codigo}</td>
-                    <td className="text-dark">{item.valorVenta}</td>
+          {ventas.map((item, index) => {
+            return (
+              <div class="table-responsive">
+                <table class="table">
 
-                  </tr>
-                </tbody>
-              </table>
-           
-         
-        )
+                  <tbody>
+                    <tr>
+                      <td className="text-dark" width='35%' scope="col">{item.fecha}</td>
+                      <td className="text-dark" width='35%' scope="col">{item.codigo}</td>
+                      <td className="text-dark" width='35%' scope="col">{item.valorVenta}</td>
+                      <script>{suma=suma+item.valorVenta}</script>
+
+                    </tr>
+                    
+                  </tbody>
+                  
+                </table>
+                
+              </div>
+
+
+      
+
+      )
+      
       })}
-       </div>
-       </div>
+      </div>
+      </div>
+
 
       <tfoot>
         <tr id="footer"></tr>
         <button type="button" class="btn btn-primary mx-4">
-          Total  4100000
+          ${suma}
         </button>
       </tfoot>
 
-    </Fragment>
+    </Fragment >
   );
 }
-
