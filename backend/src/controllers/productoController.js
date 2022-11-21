@@ -42,7 +42,10 @@ module.exports = {
         await productoSchema
         .updateOne({_id:id},{$set:{codigo,urlImagen,nombre,descripcion,características,precio,stock,categoriaId}})
         .then((data) => res.json(data))
+        
         .catch((error)=>res.json({message : error}))
+        
+       
         
     }
 }

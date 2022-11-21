@@ -82,11 +82,11 @@ export function Carrito() {
 
 		<Fragment>
 			{/*<Fragment>*/}
-			<div>
+			<div className="navbar p-5">
 				<Navbar />
 			</div>
-			<div class="p-3 mb-2">
-				<h4 class="font-main-title mx-2">Carrito</h4>
+			<div>
+				<h4 class="font-main-title mx-4 my-3">Carrito</h4>
 			</div>
 			{carrito.map((item, index) => {
 				return (

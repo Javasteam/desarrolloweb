@@ -32,9 +32,14 @@ export function Ventas() {
 
   return (
     <Fragment>
-      <div class="card">
+      <div className="navbar p-5">
+        <Navbar />
+      </div>
+      <div>
+				<h4 class="font-main-title mx-4 my-3">Ventas</h4>
+			</div>
+      <div className="card mx-4 my-4">
         <div class="card-body">
-          <h4 class="card-title">Ventas</h4>
           <div class="table-responsive">
             <table class="table">
               <thead class="thead-primary text-primary">
@@ -57,24 +62,24 @@ export function Ventas() {
                       <td className="text-dark" width='35%' scope="col">{item.fecha}</td>
                       <td className="text-dark" width='35%' scope="col">{item.codigo}</td>
                       <td className="text-dark" width='35%' scope="col">{item.valorVenta}</td>
-                      <script>{suma=suma+item.valorVenta}</script>
+                      <script>{suma = suma + item.valorVenta}</script>
 
                     </tr>
-                    
+
                   </tbody>
-                  
+
                 </table>
-                
+
               </div>
 
 
-      
 
-      )
-      
-      })}
+            )
+
+          })}
+        </div>
       </div>
-      </div>
+
 
 
       <tfoot>

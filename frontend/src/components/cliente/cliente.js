@@ -27,11 +27,13 @@ export function Cliente() {
 
   return (
     <Fragment>
-    <div>
+    <div className="navbar p-5">
       <Navbar />
     </div>
+    <div>
     <h4 class="font-main-title mx-4 my-3">Cliente</h4>
-    <div class="text-center mt-5 ">
+    </div>
+    <div class="text-center">
     <div class="card mx-4 my-4">
       <div className="row row-cols-1 row-cols-md-3 g-4" width={150} height={300}>
       

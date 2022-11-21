@@ -27,8 +27,16 @@ export function Home(){
         <h2 class="font-main-title-home">Rápido y Seguro</h2>
         <p class="font-main-text-home">Ven ya por tu nueva bicicleta y mucho más</p>
         </div>
+        <div
+      class="banner-image w-100 vh-100 d-flex justify-content-left align-items-center"
+    >
+      <div class="mx-5 content text-left">
+        <h3 class="text-white font-title-text">Inicia tu Aventura</h3>
+        <p class="text-white font-text-text">Ven con nosotros, inicia tu viaje ahora</p>
+      </div>
+    </div>
 
-        <div class="text-center mt-3 justify-content-around ">
+        {/* <div class="text-center mt-3 justify-content-around ">
     
     
     <div className="row row-cols-1 row-cols-md-3 g-4 m-3" width={150} height={300}>
@@ -58,7 +66,7 @@ return (
 })}
       
     </div>
-    </div>
+    </div> */}
 
         </Fragment>
     )
