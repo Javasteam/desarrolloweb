@@ -14,6 +14,9 @@ Content-Type: application/json
 GET http://localhost:5000/api/carrito HTTP/1.1
 
 ###
+GET http://localhost:5000/api/sumaCarrito HTTP/1.1
+
+###
 DELETE http://localhost:5000/api/carrito/636fe3e78620ee670bc56cb7 HTTP/1.1
 
 ###

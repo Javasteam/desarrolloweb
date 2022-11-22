@@ -1,4 +1,3 @@
-import { OmitProps } from 'antd/lib/transfer/ListBody.js';
 import React, { Fragment, useEffect, useState } from 'react';
 import Navbar from '../navbar/navbar.js';
 import { getProductos } from "../../api/apiProductos.js";
@@ -6,14 +5,15 @@ import { getProductos } from "../../api/apiProductos.js";
 
 export function Modificar() {
     const [productos, setProductos] = useState([]);
+    // const [product, setProduct] = useState({});   
     useEffect(() => {
 
         const getdata = async () => {
 
             const data = await getProductos();
-
+            console.log("Esta es la data", data)
             setProductos(data)
-            console.log(data)
+
 
         }
 
@@ -22,11 +22,33 @@ export function Modificar() {
     }, [])
 
 
-
-
-    function AlertaMod() {
-        alert("El producto ha sido actualizado correctamente")
+const modificarProducto = async (id,producto) => {
+    const someData = { 
     }
+    console.log(id);
+    console.log(producto);
+    console.log(JSON.stringify({producto}))
+    
+    const response =await fetch(`http://localhost:5000/api/producto/${id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+            producto
+        }),
+        // headers:{
+        //     'Content-Type': 'application/json'
+        //   }
+    });
+
+    console.log(response);
+    return response.json();
+
+        
+}
+
+
+    // function AlertaMod() {
+    //     alert("El producto ha sido actualizado correctamente")
+    // }
 
     // function Seleccionar() {
 
@@ -34,12 +56,12 @@ export function Modificar() {
 
     //     return (
 
-    //         <div className="col-6 my-8">
+    //         <div className="col-6 my-8"> 
     //             <h3>Productos</h3>
     //             <select name="Producto">
     //                 {productos.map((item, i) => (
     //                     <>
-    //                         <option value={i}>{productos.nombre}</option>
+    //                         <option value={i}>{item.nombre}</option>
     //                         {setProductos(item)}
     //                     </>
     //                 ))
@@ -55,62 +77,33 @@ export function Modificar() {
     return (
 
         <Fragment>
-            <div>
+            <div className="navbar p-5">
                 <Navbar />
             </div>
-            <div class="p-3 mb-2">
-				<h4 class="font-main-title mx-2">Modificar Productos</h4>
-			</div>
+            <h4 class="font-main-title mx-4 my-3 ">Modificar Productos</h4>
             {productos.map((item, index) => {
-				return (
-            <div class="text-center">
-                <>
-                    <div class="card mx-4 p-3 mb-5">
+                return (
+                    <div class="text-center">
+                        <div class="card mx-4  mb-1">
 
-                        <div className="row row-cols-1 row-cols-md-4 g-8 ">
-
-                            <div className='container my-4 '>
-                                {/* <Seleccionar /> */}
-                                <table class="table table-hover table-responsive table-striped text-center mx-10">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nombre Producto</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="font-text text-center" id="Productos">
-                                        <tr>
-                                        <th scope="row">1</th>
-                                        <td>{item.nombre}</td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row">2</th>
-                                        <td>{item.nombre}</td>
-                                        </tr>
-                                        
-                                        
-                                    </tbody>
-                                </table>
-
-
-
-                            </div>
-
-                            <div className='container my-4'>
-                            
-                                <img id="imagenBici" className="Logo-Bici-Select" class="card-img-top"  />
-                                <img
-                                    src={item.urlImagen}
-                                    class="img-fluid img-thumbnail"
-                                    alt={item.nombre}
-                                    width="300"
-                                    height="300"
-                                />
-                            </div>
-
-                            <div className='container my-4'>
-                                <form >
-                                    <   div class="form-group">
+                            <form class="row" >
+                                <div className='md-4 g-8 '>
+                                    <div className="container col-md-3 my-4">
+                                        <h5>{item.nombre}</h5>
+                                    </div>
+                                </div>
+                                <div className='container col-md-3 my-4'>
+                                    <img id="imagenBici" className="Logo-Bici-Select" class="card-img-top" />
+                                    <img
+                                        src={item.urlImagen}
+                                        class="img-fluid img-thumbnail"
+                                        alt={item.nombre}
+                                        width="300"
+                                        height="300">
+                                    </img>
+                                </div>
+                                <div className="container col-md-6 my-4">
+                                    <div class="form-group">
                                         <label for="productos1">Referencia</label>
                                         <input class="form-control" name="id" placeholder={item.id} />
                                     </div>
@@ -127,32 +120,26 @@ export function Modificar() {
                                         <label for="productos1">Caracteristicas</label>
                                         <input class="form-control" name="Caracteristicas" placeholder={item.caracteristicas} />
                                     </div>
-
                                     <div class="form-group">
                                         <label for="productos1">Precio</label>
-                                        <input type="number" class="form-control" name="stock"placeholder={item.precio}  />
+                                        <input type="number" class="form-control" name="stock" placeholder={item.precio} />
                                     </div>
                                     <div class="form-group">
                                         <label for="productos1"> Categoria</label>
                                         <input class="form-control" name="additional" placeholder={item.categoriaId} />
                                     </div>
                                     <div>
-                                        <br></br>
-                                        <button id="btn" onClick={AlertaMod} class="btn btn-primary">Modificar</button>
+                                    <br></br>
+                                    <button type="button" class="btn btn-primary btn-sm px-3" onClick={() => modificarProducto(item._id)}>Modificar</button>
+                                </div>
+                                </div>
+                            </form>
 
-                                    </div>
-
-                                </form>
-                            </div>
                         </div>
-
                     </div>
-                </>
-            </div>
-            	)
-			})}
+                )
+            })}
+
         </Fragment>
-
     );
-
 }

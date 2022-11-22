@@ -27,12 +27,13 @@ export function App() {
 
   return (
     <Fragment>
-    <div>
+    <div className="navbar p-5">
       <Navbar />
     </div>
-    <h4 class="font-main-title mx-4 my-3">Productos</h4>
-    <div class="text-center mt-5 ">
-    <div class="card mx-4 my-4">
+    <h4 class="font-main-title mx-4 my-3 ">Productos</h4>
+   
+    <div class="text-center mx-4 my-3">
+   
     <div className="row row-cols-1 row-cols-md-3 g-4" width={150} height={300}>
       
     {productos.map((item, index) => {
@@ -47,12 +48,11 @@ export function App() {
       <p class="card-description">{item.descripcion}</p>
       <p>{item.precio}</p>
       <p class="badge bg-primary text-center">Stock: {item.stock}</p>
-      <div>
-      <button class="btn btn-outline-dark">
-        More Info
-      </button>
-      </div>
+      <div className="contenedor">
+      <button class="btn btn-outline-dark mx-3">More Info</button>
+      <a  href="/modificar?id=${item.id}" class="btn btn-outline-dark"> Modificar </a>
       </div> 
+    </div>
     </div>
     </div>
      
@@ -60,7 +60,7 @@ export function App() {
     })}
   
   </div>
-  </div>
+
   </div>
   </Fragment>
   

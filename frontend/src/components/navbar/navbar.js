@@ -14,10 +14,10 @@ export default function Navbar(){
     return(
       <Fragment>
       
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+      <nav class="navbar fixed-top navbar-expand-lg bg-light p-md-3" >
       <div class="container">
         <a class="navbar-brand" href="/">
-          <img src="logotienda.png" height="80" alt="Rápido y Seguro"/>
+          <img src="logotienda.png" height="70" alt="Rápido y Seguro"/>
         </a>
         <button
           class="navbar-toggler"
@@ -35,13 +35,13 @@ export default function Navbar(){
           <div class="mx-auto"></div>
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link text-white" href="/">Home</a>
+              <a class="nav-link text-black" href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/listar-productos">Productos</a>
+              <a class="nav-link text-black" href="/listar-productos">Productos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/ventas">Ventas</a>
+              <a class="nav-link text-black" href="/ventas">Ventas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="/cliente">Cliente</a>
@@ -78,14 +78,7 @@ export default function Navbar(){
     </nav>
 
     
-    <div
-      class="banner-image w-100 vh-100 d-flex justify-content-left align-items-center"
-    >
-      <div class="mx-5 content text-left">
-        <h3 class="text-white font-title-text">Inicia tu Aventura</h3>
-        <p class="text-white font-text-text">Ven con nosotros, inicia tu viaje ahora</p>
-      </div>
-    </div>
+   
 
     
     </Fragment>
