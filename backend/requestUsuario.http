@@ -4,11 +4,12 @@ Content-Type: application/json
 
 {
       "codigo": "1",
-      "correo": "https://http2.mlstatic.com/D_NQ_NP_905295-MCO48918988539_012022-O.webp",
+      "correo": "joy@gmoil.com",
       "nombre": "Bicicleta todo terreno",
+      "role":"admin",
       "direccion": "Calle 99",
       "password": "1234"
-      //"carrito" : 
+      
 }
 
 ###
@@ -23,7 +24,7 @@ Content-Type: application/json
 
 {
       "codigo": "1",
-      "correo": "https://http2.mlstatic.com/D_NQ_NP_905295-MCO48918988539_012022-O.webp",
+      "correo": "yovoy@gmoil.com",
       "nombre": "Bicicleta todo terreno",
       "direccion": "Calle 99",
       "password": "1234"
